@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <meta name="google-site-verification" content="Lnh_8eo-mxGUKeBxCGxkS3yJiNc7VCIhj2gsFr_r8Nk" />
+  </head>
+  <body>
+
+  <div>
+      <!-- sample Navbar: https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <!-- Brand -->
+          <a class="navbar-brand" href="/">COMP2106 Global Food Market</a>
+
+          <!-- Toggler/collapsible Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/about">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/foods">Our Food</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                  {{#if user}}
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">{{user.username}}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/logout">Log Out</a>
+                  </li>
+                  {{else}}
+                  <li class="nav-item">
+                      <a class="nav-link" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                  </li>
+                  {{/if}}
+                  
+              </ul>
+          </div>
+      </nav>
+      {{{body}}}
+  </div>
+
+    <script type="text/javascript" src="/javascripts/scripts.js"></script>
+  </body>
+</html>

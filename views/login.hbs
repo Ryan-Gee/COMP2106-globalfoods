@@ -1,0 +1,29 @@
+<h1>Login</h1>
+
+{{#if messages }}
+    <div class="alert alert-danger">
+        Invalid Login
+    </div>
+{{else}}
+    <div class="alert alert-info">
+        Please Enter Your Credentials
+    </div>
+{{/if}}
+
+<form method="post">
+    <fieldset class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username: *</label>
+        <input name="username" id="username" required />
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password: *</label>
+        <input name="password" id="password" type="password" required />
+    </fieldset>
+    <fieldset class="form-group">
+        <button class="btn btn-info offset-2">Login</button>
+        <a href="/google"></a><img src="/img/google.png" alt="Google" /></a>
+        <hr />
+        Need an account?  <a href="/register" title="Register">Register</a>
+        </div>
+    </fieldset>
+</form>
