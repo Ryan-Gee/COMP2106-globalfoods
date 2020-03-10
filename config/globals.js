@@ -10,7 +10,7 @@ module.exports = {
         'facebook': {
             'clientID': '187260862699847',
             'clientSecret': 'bc62a9578d34884ebe64f9972d333994',
-            'callbackURL:': 'http://localhost:3000/facebook/callback'
+            'callbackURL:': 'https://globalfoodmarket.herokuapp.com/facebook/callback'
         }
     }
 }
