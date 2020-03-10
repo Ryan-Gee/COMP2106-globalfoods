@@ -98,6 +98,43 @@ passport.use(new googleStrategy({
     }
 ))
 
+//Facebook login
+var facebookStrategy = require('passport-facebook').Strategy;
+passport.use(new facebookStrategy({
+    clientID: globals.ids.facebook.clientID,
+    clientSecret: globals.ids.facebook.clientSecret,
+    callbackURL: globals.ids.facebook.callbackURL
+}, 
+    (accessToken, refreshToken, profile, done) => {
+        //check if the user exists in mongo
+        User.findOne({oauth: profile.id}, (err, user) => {
+            if (err) {
+                console.log(err);
+            }
+            //User already exists in DB
+            if (!err && user != null) {
+                done(null, user);
+            }
+            else {
+                user = new User({
+                    username: profile.displayName,
+                    oauthID: profile.id,
+                    oauthProvider: "Facebook",
+                    created: Date.now()
+                })
+                user.save((err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        done(null, user);
+                    }
+                })
+            }
+        })
+    }
+))
+
 var indexController = require('./controllers/index');
 app.use('/', indexController);
 
